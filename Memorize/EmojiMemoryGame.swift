@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-//func createCardContent(pairIndex: Int) -> String {
-//  return "🐸"
-//}
-
 class EmojiMemoryGame: ObservableObject {
   @Published private var model: MemoryGame<String>
   var emojisArray: [String]

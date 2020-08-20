@@ -15,17 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6j-YA-qda">
-                                <rect key="frame" x="145" y="379" width="124" height="138"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="115"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlW-Ui-vF0">
+                                <rect key="frame" x="120" y="352.5" width="174" height="191"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-Pz-Khv">
+                                <rect key="frame" x="0.0" y="286.5" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="r6j-YA-qda" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AfW-PO-brH"/>
-                            <constraint firstItem="r6j-YA-qda" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eN0-HV-czR"/>
+                            <constraint firstItem="nlW-Ui-vF0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9nx-d1-Znf"/>
+                            <constraint firstItem="nlW-Ui-vF0" firstAttribute="top" secondItem="RVq-Pz-Khv" secondAttribute="bottom" constant="30" id="RHf-IB-mOt"/>
+                            <constraint firstItem="RVq-Pz-Khv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Sn5-Dh-xAy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RVq-Pz-Khv" secondAttribute="trailing" id="WzI-yH-WYc"/>
+                            <constraint firstItem="RVq-Pz-Khv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lOw-DJ-g8R"/>
+                            <constraint firstItem="nlW-Ui-vF0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="yqc-TG-3nc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
