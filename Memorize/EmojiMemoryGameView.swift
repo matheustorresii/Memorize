@@ -9,7 +9,39 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
+  var body: some View {
+    NavigationView{
+      List(themeArray, id: \.title){ theme in
+        NavigationLink(destination: ThemeProvider(chosenTheme: theme)){
+          VStack(alignment: .leading){
+            Text("\(theme.title)")
+              .foregroundColor(theme.color)
+              .font(Font.system(size: 35))
+            HStack{
+              ForEach(0..<theme.emojis.count){emoji in
+                Text("\(theme.emojis[emoji])")
+                .font(Font.system(size: 25))
+              }
+            }
+          }
+        }
+      }
+      .navigationBarTitle("Themes")
+    }
+  }
+}
+
+struct ThemeProvider: View {
+  var chosenTheme: Theme
+  var body: some View {
+    GameView(viewModel: EmojiMemoryGame(EmojiMemoryGame.createMemoryGame(chosenEmojisArray: chosenTheme.emojis),emojisArray: chosenTheme.emojis), theme: chosenTheme)
+      .navigationBarTitle(Text(chosenTheme.title), displayMode: .inline)
+  }
+}
+
+struct GameView: View {
   @ObservedObject var viewModel: EmojiMemoryGame
+  var theme: Theme
   var body: some View {
     VStack{
       Grid(viewModel.cards) { card in
@@ -20,16 +52,12 @@ struct EmojiMemoryGameView: View {
         }
         .padding()
       }
-      .foregroundColor(Color.orange)
+      .foregroundColor(theme.color)
       .padding()
-      
-      Button(
-        action:{
-          withAnimation(.easeInOut){
-            self.viewModel.resetGame()
-          }
-      },label:{ Text("New game") })
     }
+    .navigationBarItems(trailing:
+      Button(action:{withAnimation(.easeInOut){self.viewModel.resetGame()}},label:{ Text("New game") })
+    )
   }
 }
 
@@ -86,8 +114,6 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    let game = EmojiMemoryGame()
-    game.choose(card: game.cards[0])
-    return EmojiMemoryGameView(viewModel: game)
+    EmojiMemoryGameView()
   }
 }

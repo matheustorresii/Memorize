@@ -13,11 +13,16 @@ import SwiftUI
 //}
 
 class EmojiMemoryGame: ObservableObject {
-  @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+  @Published private var model: MemoryGame<String>
+  var emojisArray: [String]
   
-  private static func createMemoryGame() -> MemoryGame<String> {
-    let emojis: Array<String> = ["👻","🎃","🕷","☠️","🧟","🧛‍♂️"]
-    return MemoryGame<String>(numberOfPairsOfCards: emojis.count) { pairIndex in emojis[pairIndex] }
+  init(_ model: MemoryGame<String>, emojisArray: [String]) {
+    self.model = model
+    self.emojisArray = emojisArray
+  }
+
+  static func createMemoryGame(chosenEmojisArray:[String]) -> MemoryGame<String> {
+    return MemoryGame<String>(numberOfPairsOfCards: chosenEmojisArray.count) { pairIndex in chosenEmojisArray[pairIndex] }
   }
   
   // MARK: - Access to the model
@@ -34,6 +39,6 @@ class EmojiMemoryGame: ObservableObject {
   }
   
   func resetGame(){
-    model = EmojiMemoryGame.createMemoryGame()
+    model = EmojiMemoryGame.createMemoryGame(chosenEmojisArray: emojisArray)
   }
 }
